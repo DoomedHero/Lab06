@@ -1,38 +1,21 @@
+# Step 5: Create a MindMapLeaf object and test the __str__ and display methods.
 
-#def grade_sort(student_grades):
-#  sorted_students = sorted(student_grades.items(), key=lambda student: student[1], reverse=True)
- # return sorted_students[0]
+from Mindmap_Leaf import MindMapLeaf
 
-#student_grades = {}
+leaf = MindMapLeaf("Jean-Luc Picard", "circle")
+print(str(leaf))  # Should display "((Jean-Luc Picard))"
+leaf.display(2)   # Should display "  ((Jean-Luc Picard))" with two spaces
 
-# Adding student names and grades
-#student_grades = {
- #   'Elon Musk': 45,
-  #  'Alexander the Great': 60,
- #   'Atilla the Hun': 95,
- #   'Mao Xe Dong': 75,
-  #  'Charlemagne': 100,
- #   'Napolean Bonaparte': 98,
-#}
+print("MindMapLeaf tests completed!")
 
-# Adding students
-#new_students = {'Queen Victoria': 105, 'Genghis Khan': 102}
-#student_grades.update(new_students)
+# Step 6: Create MindMapComposite and MindMapLeaf objects to test
+root = MindMapComposite("Root", "circle")
+leaf1 = MindMapLeaf("Child 1", "square")
+leaf2 = MindMapLeaf("Child 2", "cloud")
+root.add(leaf1)
+root.add(leaf2)
 
+print(str(root))  # Should display "((Root))"
+root.display()    # Should display root and its children
 
-#print(grade_sort(student_grades))
-
-def group_words_by_length(words):
-  word_dict = {}
-  for word in words:
-      word_len = len(word)
-      if word_len not in word_dict:
-        word_dict[word_len] = []
-      word_dict[word_len].append(word)
-  return word_dict
-
-sentence = "how much wood would a woodchuck chuck if a woodchuck could chuck wood?"
-words = sentence.split()
-result = group_words_by_length(words)
-print(result)
-
+print("MindMapComposite tests completed!")
